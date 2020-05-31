@@ -41,7 +41,7 @@
                                 <p class="card-text"> {{ $item->description }} </p>
                                 <a href="{{url('student/course/list/'.$item->id.'/?section='.$listCourse->title.'&sec_id='.$listCourse->id)}}" class="btn btn-primary">Толығырақ</a>
 
-                                <a href="#" class="btn btn-info"><i class="fa fa-pencil"></i> Сатып аламын</a>
+                                <a href=" {{ url('student/buy/course/?course_id='.$item->id) }}" class="btn btn-info"><i class="fa fa-pencil"></i> Сатып аламын</a>
                             </div>
                         </div>
                     </div>

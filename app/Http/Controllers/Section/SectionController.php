@@ -11,7 +11,7 @@ class SectionController extends Controller
 
     public function __construct()
     {
-
+        $this->middleware(['auth','role:student']);
     }
 
     public function show($id)

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Entity\Application;
+use App\Entity\Course\Activate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ImageRequest;
 use App\Http\Requests\Section\SectionRequest;
+use App\Jobs\Activition;
 use App\UseCases\Course\CourseService;
 use Illuminate\Http\Request;
 
@@ -45,4 +48,22 @@ class CourseController extends Controller
         if($section)
             return redirect()->back()->with('success','Успешно изменено');
     }
+
+    public function activeCourse(Request $request)
+    {
+        $application = Application::findOrfail($request->id);
+        $variants = Activition::createTime($request->variants);
+
+        $activate = Activate::create([
+            'user_id'=>$application->user_id,
+            'course_id'=>$application->course_id,
+            'end'=>$variants
+        ]);
+        if($activate) {
+            $application->status = 1;
+            $application->save();
+            return redirect()->back()->with('success','Успешно активировано');
+        }
+    }
+
 }

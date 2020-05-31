@@ -84,8 +84,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Приватность</label>
-                            <input type="checkbox" class="form-control" name="lock" value="1">
+                            <label for="exampleInputEmail1">PRO</label>
+                            <input type="checkbox"  name="lock" value="1">
                         </div>
                         <div class="input-group mb-3">
                             <div class="custom-file">

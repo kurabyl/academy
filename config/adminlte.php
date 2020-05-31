@@ -228,6 +228,12 @@ return [
         ],
 
         [
+            'text' => 'Заявки',
+            'url'  => 'admin/applications',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [

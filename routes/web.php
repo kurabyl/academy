@@ -25,6 +25,8 @@ Route::prefix('student')->group(function(){
     Route::get('course/list/{id}','Course\CourseController@list');
     Route::get('course/more/{id}','Course\CourseController@more');
     Route::get('section/{id}','Section\SectionController@show');
+    Route::get('profile','StudentController@profile');
+    Route::get('buy/course','StudentController@buyCourse');
 });
 
 Route::prefix('admin')->group(function(){
@@ -35,11 +37,13 @@ Route::prefix('admin')->group(function(){
     Route::get('/course',  'Admin\ShowController@showCourse');
     Route::get('/students','Admin\ShowController@showStudents');
 
+    Route::get('/applications','Admin\ShowController@showApplications');
+
     Route::get('/section/edit/{id}','Admin\ShowController@editSections');
     Route::get('/course/edit/{id}','Admin\ShowController@editCourse');
     Route::get('/course/view/{id}','Admin\ShowController@showVideoCourse');
-
-
+    Route::get('/applications/active/{id}','Admin\ShowController@showActiveApplications');
+    Route::get('/applications/deactive/{id}/course/{course_id}','Admin\ShowController@showDectiveApplications');
     Route::get('/videocourse/add','Admin\ShowController@showAddVideoCourse');
     Route::get('/videocourse/edit/{id}','Admin\ShowController@editVideoCourse');
 
@@ -55,6 +59,7 @@ Route::prefix('admin')->group(function(){
 
     Route::post('videcourse/add','Admin\CourseController@addVideo')->name('add_videocourse');
     Route::post('videocourse/edit','Admin\CourseController@editVideo')->name('edit_videocourse');
+    Route::post('application/active','Admin\CourseController@activeCourse')->name('active_application');
 });
 
 

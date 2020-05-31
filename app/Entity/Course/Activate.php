@@ -9,6 +9,7 @@ class Activate extends Model
 {
     protected $table = 'activation';
 
+    protected $fillable = ['user_id','course_id','end'];
 
     public function activate()
     {

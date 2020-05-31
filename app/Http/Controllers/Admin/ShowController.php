@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Entity\Application;
+use App\Entity\Course\Activate;
 use App\Entity\Course\Course;
 use App\Entity\Course\VideoCourse;
 use App\Entity\Section;
@@ -67,5 +69,31 @@ class ShowController extends Controller
             'video'=>VideoCourse::findOrFail($id),
             'sections'=>Section::all()
         ]);
+    }
+
+    public function showApplications()
+    {
+        return view('admin.show.applications',['users'=>User::where('role','student')->get()]);
+    }
+
+    public function showActiveApplications($id)
+    {
+        return view('admin.show.edit-application-active',[
+            'application'=>Application::findOrFail($id),
+        ]);
+    }
+
+    public function showDectiveApplications($id,$course_id)
+    {
+        Activate::where([
+            'user_id'=>$id,
+            'course_id'=>$course_id
+        ])->delete();
+
+        $status = Application::findOrfail(\request()->app);
+        $status->status = 0;
+        $status->save();
+
+        return redirect()->back()->with('success','Успешно деактировано');
     }
 }

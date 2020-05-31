@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Auth;
 class CourseController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware(['auth','role:student']);
+    }
+
     public function list($id)
     {
 
