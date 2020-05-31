@@ -1,0 +1,179 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+
+}
+
+a:hover{
+	text-decoration: none;
+	color: red;
+
+}
+
+.main-header {
+	background: url(../img/bg.png) center  no-repeat;
+	background-size: cover;
+	position: relative;
+	min-height: 700px;
+	height: 100%;
+
+}
+
+.main-header-logo {
+	padding: 40px 0 0 40px;
+
+}
+
+.main-header-logo h3 a {
+	color: #fff;
+	font-weight: 600;
+	opacity: .9;
+	font-size: 25px;
+
+}
+
+.animated {
+   -webkit-animation-duration: 2s;
+   animation-duration: 2s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1.05);
+    }
+
+    70% {
+        -webkit-transform: scale(.9);
+    }
+
+    100% {
+         -webkit-transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.bounceIn {
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
+}
+
+.main-header-logo h3 a:hover {
+	text-decoration: none;
+	opacity: 1;
+
+}
+
+.main-header-text {
+	padding: 60px 600px 20px 40px;
+}
+
+.main-header-text h4 {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.main-header-text p {
+	color: #e8edfa;
+	font-size: 12px;
+	padding-right: 40px;
+	padding-top: 20px;
+}
+
+.main-header-text p img{
+	width: 300px;
+	height: 190px;
+}
+
+.main-header-form {
+	position: absolute;
+	left: 900px;
+	top: 80px;
+	right: 100px;
+
+}
+
+.main-header-form h3 {
+	font-size: 20px;
+	font-weight: 600;
+
+}
+
+.main-header-form .btn {
+	width: 100%;
+	background-color: black;
+	border: 0;
+	padding: 14px 30px;
+
+}
+
+.forgotthepass{
+	float: right;
+}
+
+.main-header-form p a{
+	margin-bottom: 5px;
+	margin-top: 0;
+
+}
+
+.main-header-form .ff2 {
+	padding-top: 20px;
+
+}
+
+p a {
+	font-size: 14px;
+}
+
+.main-header-form .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: 25px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 50px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
