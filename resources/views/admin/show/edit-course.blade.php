@@ -60,7 +60,10 @@
                 <label class="custom-file-label" for="input-cover">Выбрать файл</label>
             </div>
         </div>
-
+        <div class="form-group">
+            <label for="exampleInputEmail1">PRO</label>
+            <input type="checkbox"  name="lock" value="{{ $course->lock }}" @if($course->lock == 1) checked @endif>
+        </div>
         </div>
         <div class="modal-footer">
 

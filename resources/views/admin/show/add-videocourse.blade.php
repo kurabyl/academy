@@ -16,12 +16,13 @@
 
         <div class="form-group">
             <label for="exampleInputEmail1">Раздел</label>
-            <select name="section" class="form-control" onchange="location = this.value;">
+            <select  class="form-control" onchange="location = this.value;">
                 <option value=""></option>
                 @foreach($sections as $section)
                     <option value="{{ url('admin/videocourse/add?section='.$section->id) }}" @if(request()->section == $section->id) selected @endif">{{ $section->title }}</option>
                 @endforeach
             </select>
+            <input type="hidden" name="section" value="{{ request()->section }}">
         </div>
         @if(request()->section)
             <div class="form-group">
