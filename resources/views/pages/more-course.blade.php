@@ -84,34 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5 col-md-5 mt-2" >
-                            <div class="card-body" style="background: white;border-radius: 5px;box-shadow: 0 1px 10px rgba(0,0,0,.08);">
-                                <div class="progress-box ">
-                                    <h6 class="por-title" style="font-size:12px;"><span class="number">1</span> Visits фывфы вфыв фы вфывф ы</h6>
 
-                                </div>
-                                <div class="progress-box ">
-                                    <h6 class="por-title" style="font-size:14px;"><span class="number">1</span> Visits фывфы вфыв фы вфывф ы</h6>
-
-                                </div>
-                                <div class="progress-box ">
-                                    <h6 class="por-title" style="font-size:14px;"><span class="number">1</span> Visits фывфы вфыв фы вфывф ы</h6>
-
-                                </div>
-                                <div class="progress-box ">
-                                    <h6 class="por-title" style="font-size:14px;"><span class="number">1</span> Visits фывфы вфыв фы вфывф ы</h6>
-
-                                </div>
-                                <div class="progress-box ">
-                                    <h6 class="por-title" style="font-size:14px;"><span class="number">1</span> Visits фывфы вфыв фы вфывф ы</h6>
-
-                                </div>
-                                <div class="progress-box ">
-                                    <h6 class="por-title" style="font-size:14px;"><span class="number">1</span> Visits фывфы вфыв фы вфывф ы</h6>
-
-                                </div>
-
-                            </div> <!-- /.card-body -->
                         </div>
                     </div> <!-- /.row -->
                     <div class="card-body"></div>
