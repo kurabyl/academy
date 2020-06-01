@@ -27,6 +27,7 @@ Route::prefix('student')->group(function(){
     Route::get('section/{id}','Section\SectionController@show');
     Route::get('profile','StudentController@profile');
     Route::get('buy/course','StudentController@buyCourse');
+    Route::post('send/buy/course','Course\CourseController@buyCourse')->name('buy_course');
 });
 
 Route::prefix('admin')->group(function(){

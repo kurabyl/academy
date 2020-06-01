@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Section;
 use App\Entity\Section;
 use App\Http\Controllers\Controller;
 use App\UseCases\Section\SectionService;
+use Illuminate\Support\Facades\Auth;
 
 class SectionController extends Controller
 {
@@ -17,7 +18,10 @@ class SectionController extends Controller
     public function show($id)
     {
         $listCourse = Section::findOrfail($id);
-        return view('pages.courses',['listCourse'=>$listCourse]);
+        return view('pages.courses',[
+            'listCourse'=>$listCourse,
+            'user'=>Auth::user()
+        ]);
     }
 
 }

@@ -15,4 +15,5 @@ class Section extends Model
         return $this->hasMany(Course::class);
     }
 
+
 }

@@ -19,7 +19,8 @@ class SectionListService
 
     public static function mycourse()
     {
-        return DB::table('activation')
+        if(Auth::check())
+            return DB::table('activation')
             ->where('user_id',Auth::user()->id)
             ->join('course','activation.course_id','=','course.id')
             ->count();

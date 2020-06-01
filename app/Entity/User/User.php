@@ -2,6 +2,7 @@
 
 namespace App\Entity\User;
 use App\Entity\Application;
+use App\Entity\Course\Course;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -46,6 +47,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Application::class);
     }
+
 
 
 }

@@ -3,12 +3,16 @@
 
 namespace App\Http\Controllers\Course;
 
+use App\Entity\Application;
 use App\Entity\Course\Activate;
 use App\Entity\Course\Course;
 use App\Entity\Course\CourseActivate;
 use App\Entity\Course\VideoCourse;
+use App\Entity\User\User;
+use App\Entity\User\UserDetails;
 use App\Http\Controllers\Controller;
 use App\Jobs\Activition;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -27,7 +31,9 @@ class CourseController extends Controller
         if($course) return redirect()->back()->with('warning','Бұл курс ақылы.');
 
         $listCourse = Course::findOrFail($id);
-        return view('pages.list-course',['listCourse'=>$listCourse]);
+        return view('pages.list-course',[
+            'listCourse'=>$listCourse
+        ]);
     }
 
     public function more($id)
@@ -59,6 +65,19 @@ class CourseController extends Controller
         }
 
         return false;
+    }
+
+    public function buyCourse(Request $request)
+    {
+        $request->validate([
+            'phone'=>'required|max:18'
+        ]);
+        UserDetails::where('user_id',Auth::user()->id)->update(['phone'=>$request->phone]);
+        Application::create([
+            'user_id'=>Auth::user()->id,
+            'course_id'=>$request->course_id
+        ]);
+        return redirect()->back()->with('success','Рахмет сұраныс қабылданды');
     }
 
 }
