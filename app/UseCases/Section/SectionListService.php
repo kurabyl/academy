@@ -22,7 +22,6 @@ class SectionListService
         if(Auth::check())
             return DB::table('activation')
             ->where('user_id',Auth::user()->id)
-            ->join('course','activation.course_id','=','course.id')
-            ->count();
+            ->join('course','activation.course_id','=','course.id');
     }
 }

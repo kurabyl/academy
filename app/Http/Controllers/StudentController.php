@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Entity\Application;
+use App\Entity\User\User;
+use App\Entity\User\UserDetails;
+use App\UseCases\Section\SectionListService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +24,7 @@ class StudentController extends Controller
 
     public function profile()
     {
-        return view('profile');
+        return view('profile',['user'=>Auth::user()]);
     }
 
     public function buyCourse()
@@ -45,5 +48,30 @@ class StudentController extends Controller
         return redirect()->back()->with('warning','Упс! Сіз сұранысты '
             .$application->created_at.' күні жібердіңіз :) Осы номерге 877777777 хабарласыңыз');
 
+    }
+
+    public function changeDetails(Request $request)
+    {
+
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->name;
+
+        $user->save();
+
+        $details = UserDetails::where('user_id',$user->id)->first();
+        $details->gender = $request->gender;
+        $details->phone = $request->phone;
+        $details->birthday = $request->date;
+        $details->telegram = $request->telegram;
+        $details->instagram = $request->instagram;
+        $details->save();
+        return redirect()->back()->with('success','Өзгертілді');
+    }
+
+    public function myCourse()
+    {
+        return view('pages.mycourse',[
+            'listCourse'=>SectionListService::mycourse()->get()
+        ]);
     }
 }

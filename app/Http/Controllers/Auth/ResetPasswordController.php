@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Entity\User\User;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Traits\EmailCommand;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
@@ -20,11 +22,29 @@ class ResetPasswordController extends Controller
     */
 
     use ResetsPasswords;
-
+    use EmailCommand;
     /**
      * Where to redirect users after resetting their password.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
+
+    public function reset(Request $request)
+    {
+        $password = $this->generatePassword();
+
+        $msg = "
+            <p>Сәлеметсізбе {$request->email}</p>
+            <p>Сіздің құпиясөзіңіз : <strong>{$password }</strong></p>
+        ";
+        $send = $this->sendEmail($request->email,$msg,'Құпиясөз');
+        if($send)
+        {
+            User::where('email',$request->email)->update([
+                'password'=> Hash::make($password)
+            ]);
+            return redirect('/login')->with('success','Сіздің поштаңызға жаңа құпиясөз жіберілді');
+        }
+    }
 }

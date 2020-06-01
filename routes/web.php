@@ -28,6 +28,8 @@ Route::prefix('student')->group(function(){
     Route::get('profile','StudentController@profile');
     Route::get('buy/course','StudentController@buyCourse');
     Route::post('send/buy/course','Course\CourseController@buyCourse')->name('buy_course');
+    Route::post('profile/changedetails','StudentController@changeDetails')->name('change_details');
+    Route::get('mycourse','StudentController@myCourse');
 });
 
 Route::prefix('admin')->group(function(){

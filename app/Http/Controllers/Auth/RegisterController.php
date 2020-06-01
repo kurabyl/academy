@@ -6,6 +6,7 @@ use App\Entity\User\UserDetails;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Entity\User\User;
+use App\Traits\EmailCommand;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -24,13 +25,13 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
+    use EmailCommand;
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -64,15 +65,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $password = $this->generatePassword();
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make(123456),
+            'password' => Hash::make($password),
             'role'=>'student'
         ]);
         UserDetails::create([
             'user_id'=>$user->id
         ]);
+        $msg = "
+            <p>Сәлем {$data['name']}</p>
+            <p>Сіздің жаңа құпиясөзіңіз : <strong>{$password}</strong></p>
+        ";
+        $this->sendEmail($data['email'],$msg,'Zhanbolat Academy');
         return $user;
     }
 }

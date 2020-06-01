@@ -53,17 +53,20 @@ class CourseController extends Controller
     {
         $application = Application::findOrfail($request->id);
         $variants = Activition::createTime($request->variants);
+        if(!Activate::where(['user_id'=>$application->user_id,'course_id'=>$application->course_id])->exists()){
 
-        $activate = Activate::create([
-            'user_id'=>$application->user_id,
-            'course_id'=>$application->course_id,
-            'end'=>$variants
-        ]);
-        if($activate) {
-            $application->status = 1;
-            $application->save();
-            return redirect()->back()->with('success','Успешно активировано');
+            $activate = Activate::create([
+                'user_id'=>$application->user_id,
+                'course_id'=>$application->course_id,
+                'end'=>$variants
+            ]);
+            if($activate) {
+                $application->status = 1;
+                $application->save();
+                return redirect()->back()->with('success','Успешно активировано');
+            }
         }
+        return redirect()->back()->with('warning','Уже существует');
     }
 
 }
