@@ -33,6 +33,7 @@
     <div class="content">
         <div class="animated fadeIn">
             <div class="row">
+                @if($listCourse->courses->count() > 0)
                 @foreach($listCourse->courses as $item)
                     <div class="col-md-4">
                         <div class="card">
@@ -47,6 +48,7 @@
                         </div>
                     </div>
                 @endforeach
+                    @endif
             </div><!-- .row -->
         </div>
     </div>
@@ -69,7 +71,7 @@
                     <input type="submit" value="Жіберу" >
                 </form>
             @else
-                <a href=" {{ url('student/buy/course/?course_id='.$item->id) }}" class="btn btn-info" disabled> Сұраныс жіберемін</a>
+                <a href=" {{ url('student/buy/course/?course_id='.request()->course_id) }}" class="btn btn-info" disabled> Сұраныс жіберемін</a>
 
             @endif
         </div>
