@@ -72,7 +72,7 @@
 
                 <div class="text-center p-t-12">
 
-                    <a class="txt2" href="#" style="font-family: Verdana;">
+                    <a class="txt2" href="{{url('/reset')}}" style="font-family: Verdana;">
                         Құпиясөзді ұмыттыңызба ?
                     </a>
                 </div>

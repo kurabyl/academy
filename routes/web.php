@@ -71,3 +71,5 @@ Route::get('/logout', function(){
     Auth::logout();
     return Redirect::to('login');
 })->name('logout');
+Route::get('reset','ResetPasswordController@show');
+Route::post('resetpassword','ResetPasswordController@reset')->name('resetpassword');

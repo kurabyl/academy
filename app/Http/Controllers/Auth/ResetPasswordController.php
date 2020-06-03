@@ -30,6 +30,12 @@ class ResetPasswordController extends Controller
      */
     protected $redirectTo = '/';
 
+
+    public function show()
+    {
+        return view('auth.reset');
+    }
+
     public function reset(Request $request)
     {
         $password = $this->generatePassword();
