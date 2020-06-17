@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use App\Traits\EmailCommand;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ResetPasswordController extends Controller
 {
