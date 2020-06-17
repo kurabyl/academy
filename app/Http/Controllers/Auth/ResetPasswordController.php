@@ -33,7 +33,7 @@ class ResetPasswordController extends Controller
 
     public function show()
     {
-        return view('auth.reset');
+        return view('auth.passwords.reset');
     }
 
     public function reset(Request $request)
