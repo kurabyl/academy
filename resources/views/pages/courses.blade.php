@@ -41,9 +41,11 @@
                             <div class="card-body">
                                 <h4 class="card-title mb-3">{{ $item->title }}</h4>
                                 <p class="card-text"> {{ $item->description }} </p>
+                                @if($item->lock != 1)
                                 <a href="{{url('student/course/list/'.$item->id.'/?section='.$listCourse->title.'&sec_id='.$listCourse->id)}}" class="btn btn-primary">Толығырақ</a>
-
-                                <a href="{{ url('student/section/'.request()->id.'/?course_id='.$item->id.'#buycourse') }}" class="btn btn-info"> Сатып аламын</a>
+                                @else
+                                <a href="{{ url('student/section/'.request()->id.'/?course_id='.$item->id.'#buycourse') }}" class="btn btn-success"> Сатып алу</a>
+                                @endif
                             </div>
                         </div>
                     </div>
