@@ -85,7 +85,7 @@
         </div>
         <div class="modal-footer">
 
-            <button type="submit" class="btn btn-primary">Редактировать</button>
+            <button type="submit" class="btn btn-primary">Добавить</button>
         </div>
     </form>
 
