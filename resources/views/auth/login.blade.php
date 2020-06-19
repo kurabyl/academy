@@ -30,13 +30,7 @@
                 <img src="{{asset('login_assets/images/img-01.png')}}" alt="IMG">
             </div>
             @if(Session::get('forget') == md5('forget'))
-                <div style="width: 700px;height: 50px;background: green;color:white;">
-
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-
-                    <strong>Сәлем сіздің поштаңызға құпиясөз жіберілді</strong>
-
-                </div>
+                    <script>alert('Сәлем сіздің поштаңызға құпиясөз жіберілді')</script>
                 <?php
                 request()->session()->forget('forget');
                 ?>
