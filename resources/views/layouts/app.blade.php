@@ -10,7 +10,7 @@
     <meta name="description" content="Zhanbolat Academy">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="{{asset('favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.2/plyr.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
