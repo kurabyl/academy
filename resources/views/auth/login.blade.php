@@ -22,7 +22,18 @@
     <!--===============================================================================================-->
 </head>
 <body>
+@if(Session::get('forget') == md5('forget'))
+    <div class="alert alert-success alert-block">
 
+        <button type="button" class="close" data-dismiss="alert">×</button>
+
+        <strong>Сәлем сіздің поштаңызға құпиясөз жіберілді</strong>
+
+    </div>
+    <?php
+    request()->session()->forget('forget');
+    ?>
+@endif
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">

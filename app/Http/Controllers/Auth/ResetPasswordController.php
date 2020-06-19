@@ -61,6 +61,7 @@ class ResetPasswordController extends Controller
 
         ";
         $send = $this->sendEmail($request->email,$msg,'Құпиясөз');
+        request()->session()->put('forget', md5('forget'));
         if($send)
         {
             User::where('email',$request->email)->update([
