@@ -77,9 +77,29 @@ class RegisterController extends Controller
             'user_id'=>$user->id
         ]);
         $msg = "
-            <p>Сәлем {$data['name']}</p>
-            <p>Сіздің жаңа құпиясөзіңіз : <strong>{$password}</strong></p>
-        ";
+
+            <p>Сәлем құрметті студент !!!</p>
+
+            <p>Сіз, Zhanbolat Academy платформасына тіркелдіңіз.</p>
+
+            <p>Сіздің логиніңіз: { $data['name'] }</p>
+            ";
+            $msg .= "<p>Сіздің уақытша құпия сөзіңіз: {$password}</p>
+
+            <p>Сілтеме арқылы сайтқа өтіңіз: https://zhanbolat.academy </p>
+
+
+           <p> P.S. Егер бұл хатты түсініспеушілік нәтижесінде алған болсаңыз, хатты өшіре салыңыз.
+            P.S. Zhanbolat Academy ұжымы, Сізге сапалы білім беруге, бар күшін салады.</p>
+
+            <p>Біздің девиз: Our rewards will always be in exact proportion to our service
+            Біздің миссиямыз: Әр адамның потенциалын ашу, Ол біздің ең басты миссиямыз.</p>
+
+            <p>Телефон: 8 (708) 421-66-11
+            Email: support@zhanbolat.academy
+            Сайт: https://zhanbolat.academy  </p>
+
+            <p>:copyright: Zhanbolat Academy 2020</p>";
         $this->sendEmail($data['email'],$msg,'Zhanbolat Academy');
         return $user;
     }
