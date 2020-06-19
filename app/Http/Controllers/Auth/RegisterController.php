@@ -80,7 +80,7 @@ class RegisterController extends Controller
 
             <p>Сіз, Zhanbolat Academy платформасына тіркелдіңіз.</p>
 
-            <p>Сіздің логиніңіз: $data[name] </p>";
+            <p>Сіздің логиніңіз: $data[email] </p>";
 
 
             $msg .= "<p>Сіздің уақытша құпия сөзіңіз: {$password}</p>
