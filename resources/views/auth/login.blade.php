@@ -22,25 +22,25 @@
     <!--===============================================================================================-->
 </head>
 <body>
-@if(Session::get('forget') == md5('forget'))
-    <div class="alert alert-success alert-block">
 
-        <button type="button" class="close" data-dismiss="alert">×</button>
-
-        <strong>Сәлем сіздің поштаңызға құпиясөз жіберілді</strong>
-
-    </div>
-    <?php
-    request()->session()->forget('forget');
-    ?>
-@endif
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-pic js-tilt" data-tilt>
                 <img src="{{asset('login_assets/images/img-01.png')}}" alt="IMG">
             </div>
+            @if(Session::get('forget') == md5('forget'))
+                <div style="width: 700px;height: 50px;background: green;color:white;">
 
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+
+                    <strong>Сәлем сіздің поштаңызға құпиясөз жіберілді</strong>
+
+                </div>
+                <?php
+                request()->session()->forget('forget');
+                ?>
+            @endif
             <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                 @csrf
                 <span class="login100-form-title">
