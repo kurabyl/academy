@@ -17,7 +17,7 @@
                 <div class="col-sm-8">
                     <div class="page-header float-right">
                         <div class="page-title">
-                            <ol class="breadcrumb text-right">
+                            <ol class="breadcrumb text-right" style="text-transform:none">
                                 <li><a href="/">Басты бет</a></li>
                                 <li>{{$listCourse->title}}</li>
 
