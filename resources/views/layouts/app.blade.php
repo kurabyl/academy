@@ -7,11 +7,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Zhanbolat Academy</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <meta name="description" content="Zhanbolat Academy">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <link href="{{asset('favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.6.2/plyr.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
@@ -75,7 +74,7 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="{{ asset('images/logos.png?cache='.time()) }} " alt="Logo" style="width:105px;"></a>
+                    <a class="navbar-brand" href="./"><img src="{{ asset('images/logos.png?cache='.time()) }} " alt="Logo" style="width:105px;s"></a>
                     <a class="navbar-brand hidden" href="./"><img src="{{ asset('images/logos.png?cache='.time()) }} " alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
@@ -117,7 +116,7 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{ asset('login_assets/images/profile.png') }}" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{ asset('useravatar.jpg') }}" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -149,7 +148,7 @@
                         Copyright &copy; 2020 Zhanbolat Academy
                     </div>
                     <div class="col-sm-6 text-right">
-                        Designed by Colorlib
+
                     </div>
                 </div>
             </div>

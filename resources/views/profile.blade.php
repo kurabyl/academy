@@ -42,7 +42,7 @@
                                                     <div class="row">
                                                         <div class="col-xs-12 col-sm-3 center">
 							<span class="profile-picture">
-								<img class="editable img-responsive" alt=" Avatar" id="avatar2" src="{{ asset('login_assets/images/profile.png') }}">
+								<img class="editable img-responsive" alt=" Avatar" id="avatar2" src="{{ asset('useravatar.jpg') }}">
 							</span>
 
                                                             <div class="space space-4"></div>
