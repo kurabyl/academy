@@ -47,4 +47,14 @@ class AdminController extends Controller
             return redirect()->back()->with('success','Успешно изменено');
     }
 
+    public function deleteSection($id)
+    {
+        $section = Section::find($id);
+        if($section)
+        {
+           $section->delete();
+           return redirect()->back()->with('error','Успешно удалено');
+        }
+    }
+
 }

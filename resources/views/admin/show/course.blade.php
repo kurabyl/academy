@@ -35,7 +35,8 @@
                 <td><a href="{{url('/admin/course/view/'.$items->id)}}">{{ $items->title }}</a></td>
                 <td>{{ $items->description }}</td>
                 <td><img src="{{ asset('image_course/'.$items->image )}}" width="140"></td>
-                <td><a href="{{url('/admin/course/edit/'.$items->id)}}"><i class="fas fa-edit"></i></a></td>
+                <td><a href="{{url('/admin/course/edit/'.$items->id)}}"><i class="fas fa-edit"></i></a>
+                    <a href="{{url('/admin/course/delete/'.$items->id)}}"><i class="fa fa-trash-o"></i></a></td>
             </tr>
         @endforeach
         </tbody>

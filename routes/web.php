@@ -43,12 +43,19 @@ Route::prefix('admin')->group(function(){
     Route::get('/applications','Admin\ShowController@showApplications');
 
     Route::get('/section/edit/{id}','Admin\ShowController@editSections');
+    Route::get('/section/delete/{id}','Admin\SectionController@deleteSection');
+
     Route::get('/course/edit/{id}','Admin\ShowController@editCourse');
+    Route::get('/course/delete/{id}','Admin\CourseController@delete');
+
     Route::get('/course/view/{id}','Admin\ShowController@showVideoCourse');
     Route::get('/applications/active/{id}','Admin\ShowController@showActiveApplications');
+
     Route::get('/applications/deactive/{id}/course/{course_id}','Admin\ShowController@showDectiveApplications');
     Route::get('/videocourse/add','Admin\ShowController@showAddVideoCourse');
+
     Route::get('/videocourse/edit/{id}','Admin\ShowController@editVideoCourse');
+    Route::get('/videocourse/delete/{id}','Admin\CourseController@deleteVideo');
 
 
     //Post Requests Section

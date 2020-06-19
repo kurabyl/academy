@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Entity\Application;
 use App\Entity\Course\Activate;
+use App\Entity\Course\Course;
+use App\Entity\Course\VideoCourse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ImageRequest;
 use App\Http\Requests\Section\SectionRequest;
@@ -33,6 +35,26 @@ class CourseController extends Controller
         $section = $this->service->edit($request);
         if($section)
             return redirect()->back()->with('success','Успешно изменено');
+    }
+
+    public function delete($id)
+    {
+        $course = Course::find($id);
+        if($course)
+        {
+            @unlink(public_path('image_course/'.$course->image));
+            $video = VideoCourse::where('course_id',$course->id)->get();
+            if($video->count() > 0)
+            {
+                foreach($video as $item)
+                {
+                    @unlink(public_path('image_course/'.$item->image));
+                    VideoCourse::where('course_id',$course->id)->delete();
+                }
+            }
+            $course->delete();
+            return redirect()->back()->with('error','Успешно удалено');
+        }
     }
 
     public function addVideo(ImageRequest $request)
@@ -67,6 +89,17 @@ class CourseController extends Controller
             }
         }
         return redirect()->back()->with('warning','Уже существует');
+    }
+
+    public function deleteVideo($id)
+    {
+        $video = VideoCourse::find($id);
+        if($video)
+        {
+            @unlink(public_path('image_course/'.$video->image));
+            $video->delete();
+            return redirect()->back()->with('error','Успешно удалено');
+        }
     }
 
 }
