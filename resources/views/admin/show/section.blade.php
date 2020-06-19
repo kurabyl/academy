@@ -33,7 +33,7 @@
                 <td>{{ $section->title }}</td>
                 <td><i class="fa {{ $section->icon }}" style="font-size: 35px"></i></td>
                 <td><a href="{{url('/admin/section/edit/'.$section->id)}}"><i class="fas fa-edit"></i></a>
-                    <a href="{{url('/admin/section/delete/'.$section->id)}}"><i class="fa fa-trash-o"></i></a>
+                    <a href="{{url('/admin/section/delete/'.$section->id)}}"><i class="fas fa-trash" style="color:red;"></i></a>
                 </td>
             </tr>
         @endforeach

@@ -39,7 +39,7 @@
                 <td>{{ $item->description }}</td>
                 <td><img src="{{ asset('image_course/'.$item->image) }}" alt="" width="140"></td>
                 <td><a href="{{url('/admin/videocourse/edit/'.$item->id)}}"><i class="fas fa-edit"></i></a>
-                    <a href="{{url('/admin/videocourse/delete/'.$item->id)}}"><i class="fa fa-trash-o"></i></a></td>
+                    <a href="{{url('/admin/videocourse/delete/'.$item->id)}}"><i class="fas fa-trash" style="color:red;"></i></a></td>
             </tr>
         @endforeach
         </tbody>
