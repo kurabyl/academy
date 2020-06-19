@@ -43,8 +43,22 @@ class ResetPasswordController extends Controller
         $password = $this->generatePassword();
 
         $msg = "
-            <p>Сәлеметсізбе {$request->email}</p>
-            <p>Сіздің құпиясөзіңіз : <strong>{$password }</strong></p>
+
+            <p>Сәлем {$request->email},</p>
+
+            <p>Сіз, Zhanbolat Academy платформасыда құпия сөзді өзгертуге сұраныс жасадыңыз.</p>
+
+            <p>Сіздің уақытша құпия сөзіңіз:<strong>$password</strong>
+            Сілтеме арқылы сайтқа өтіңіз: https://zhanbolat.academy </p>
+
+            <p>Бұл хабарлама Сізге робот арқылы жіберілді және оған жауап беру қажет емес!
+            P.S. Егер бұл хатты түсініспеушілік нәтижесінде алған болсаңыз, хатты өшіре салыңыз.</p><p>Телефон: 8 (708) 421-66-11</p>
+            <p>Email: support@zhanbolat.academy</p>
+            <p>Сайт: https://zhanbolat.academy  </p>
+
+            <p>&copy;  Zhanbolat Academy 2020</p>
+
+
         ";
         $send = $this->sendEmail($request->email,$msg,'Құпиясөз');
         if($send)
