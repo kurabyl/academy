@@ -13,7 +13,7 @@
                 <div class="col-sm-8">
                     <div class="page-header float-right">
                         <div class="page-title">
-                            <ol class="breadcrumb text-right">
+                            <ol class="brds text-right">
                                 <li><a href="/">Басты бет</a></li>
 
 
