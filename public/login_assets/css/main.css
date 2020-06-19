@@ -4,44 +4,32 @@
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
 
-@font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
-}
 
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
-}
 
 @font-face {
   font-family: Montserrat-Bold;
-  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
 }
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+	font-family: Montserrat, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family:Montserrat;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -67,7 +55,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
+	font-family: Montserrat;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -141,7 +129,7 @@ iframe {
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: Montserrat;
   font-size: 13px;
   line-height: 1.5;
   color: #666666;
@@ -157,7 +145,7 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -209,7 +197,7 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Poppins-Bold;
+  font-family: Montserrat;
   font-size: 24px;
   color: #333333;
   line-height: 1.2;
@@ -230,7 +218,7 @@ iframe {
 }
 
 .input100 {
-  font-family: Poppins-Medium;
+  font-family: Montserrat;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;

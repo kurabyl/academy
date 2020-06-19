@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Zhanbolat Academy </title>
+    <title>Zhanbolat Inc. | New Economy Business Academy
+    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{ asset('login_assets/images/icons/favicon.ico') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -18,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('login_assets/css/util.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('login_assets/css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('login_assets/css/main.css?cache='.time()) }}">
     <!--===============================================================================================-->
 </head>
 <body>

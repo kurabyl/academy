@@ -6,7 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Zhanbolat Academy</title>
+    <title>Zhanbolat Inc. | New Economy Business Academy
+    </title>
     <meta name="description" content="Zhanbolat Academy">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
