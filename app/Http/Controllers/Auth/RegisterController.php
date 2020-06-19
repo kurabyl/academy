@@ -76,14 +76,13 @@ class RegisterController extends Controller
         UserDetails::create([
             'user_id'=>$user->id
         ]);
-        $msg = "
-
-            <p>Сәлем құрметті студент !!!</p>
+        $msg = "<p>Сәлем құрметті студент !!!</p>
 
             <p>Сіз, Zhanbolat Academy платформасына тіркелдіңіз.</p>
 
-            <p>Сіздің логиніңіз: { $data['name'] }</p>
-            ";
+            <p>Сіздің логиніңіз: { $data[name] }</p>";
+
+
             $msg .= "<p>Сіздің уақытша құпия сөзіңіз: {$password}</p>
 
             <p>Сілтеме арқылы сайтқа өтіңіз: https://zhanbolat.academy </p>
