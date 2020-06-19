@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(Session::get('register') == md5('register'))
+        <div class="alert alert-success alert-block">
+
+            <button type="button" class="close" data-dismiss="alert">×</button>
+
+            <strong>Сәлем сіздің поштаңызға құпиясөз жіберілді</strong>
+
+        </div>
+         <?php
+         request()->session()->forget('register');
+         ?>
+    @endif
     <div class="content">
         <div class="animated fadeIn">
             <div class="row">

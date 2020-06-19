@@ -100,6 +100,7 @@ class RegisterController extends Controller
 
             <p>&copy;  Zhanbolat Academy 2020</p>";
         $this->sendEmail($data['email'],$msg,'Zhanbolat Academy');
+        request()->session()->put('register', md5('register'));
         return $user;
     }
 }

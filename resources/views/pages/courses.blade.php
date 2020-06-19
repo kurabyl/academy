@@ -44,7 +44,7 @@
                                 @if($item->lock != 1)
                                 <a href="{{url('student/course/list/'.$item->id.'/?section='.$listCourse->title.'&sec_id='.$listCourse->id)}}" class="btn btn-primary">Толығырақ</a>
                                 @else
-                                <a href="{{ url('student/section/'.request()->id.'/?course_id='.$item->id.'#buycourse') }}" class="btn btn-success"> Сатып алу</a>
+                                <a href="{{ url('student/section/'.request()->id.'/?course_id='.$item->id.'#buycourse') }}" class="btn btn-primary"> Сатып алу</a>
                                 @endif
                             </div>
                         </div>
