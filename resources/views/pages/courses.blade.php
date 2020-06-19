@@ -63,7 +63,11 @@
             <h4>Cұраныс</h4>
             <p></p>
 
-            <p>Прмер простого модального окна, которое может быть создано с использованием CSS3.</p>
+            <p>
+
+                Курс жайлы толық білгім келеді
+
+            </p>
             @if(empty($user->details['phone']) || $user->details['phone'] == '')
                 <p>Өтінеміз  телефон номеріңізді көрсетіңіз</p>
                 <form action="{{ route('buy_course') }}" method="post" style="margin-bottom: 20px;">
