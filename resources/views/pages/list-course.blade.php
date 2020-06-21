@@ -15,7 +15,7 @@
                     <div class="page-header float-right">
                         <div class="page-title">
                             <ol class="breadcrumb text-right" style="text-transform:none">
-                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="{{ url('/') }}">Басты бет</a></li>
                                 <li><a href="{{ url('student/section/'.request()->sec_id) }}">{{ request()->section }}</a></li>
                                 <li class="active">{{$listCourse->title}}</li>
                             </ol>
