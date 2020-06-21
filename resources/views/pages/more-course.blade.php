@@ -69,7 +69,7 @@
                     <div class="card-body"></div>
                 </div>
             </div><!-- /# column -->
-        </div>
+
         <!--  /Traffic -->
     </div>
 @endsection
