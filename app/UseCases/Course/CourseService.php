@@ -31,8 +31,7 @@ class CourseService
         $course->title = $request->title;
         $course->description = $request->description;
         $course->section_id = $request->section;
-        dd($request->lock);
-        $course->lock = $request->lock ?  1 : 0;
+        $course->lock = $request->lock == 0 ? 1 : 0;
         if($request->hasFile('image')) {
 
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
