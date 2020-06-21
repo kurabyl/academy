@@ -17,7 +17,7 @@ class CourseService
         $course = Course::create([
             'title'=>$request->title,
             'section_id'=>$request->section,
-            'description'=>$request->description,
+            'description'=>htmlspecialchars($request->description),
             'image'=>$imageName,
             'lock'=>$request->lock
         ]);
@@ -29,7 +29,7 @@ class CourseService
     {
         $course = $this->getCourse($request->id);
         $course->title = $request->title;
-        $course->description = $request->description;
+        $course->description = htmlspecialchars($request->description);
         $course->section_id = $request->section;
         if($request->lock == null)
         {
@@ -64,7 +64,7 @@ class CourseService
             'section_id'=>$request->section,
             'course_id'=>$request->course,
             'video'=>$request->video,
-            'description'=>$request->description,
+            'description'=>htmlspecialchars($request->description),
             'image'=>$imageName
         ]);
 
@@ -76,7 +76,7 @@ class CourseService
         $video = VideoCourse::findOrFail($request->id);
 
         $video->title = $request->title;
-        $video->description = $request->description;
+        $video->description = htmlspecialchars($request->description);
         $video->section_id = $request->section;
         $video->course_id = $request->course;
         $video->video  = $request->video;
