@@ -40,7 +40,7 @@
                             <img class="card-img-top" src="{{ asset('image_course/'.$item->image) }}" alt="Card image cap">
                             <div class="card-body">
                                 <h4 class="card-title mb-3">{{ $item->title }}</h4>
-                                <p class="card-text"> {{ htmlspecialchars_decode($item->description) }} </p>
+                                <p class="card-text"> {!! $item->description  !!} </p>
                                 @if($item->lock != 1)
                                 <a href="{{url('student/course/list/'.$item->id.'/?section='.$listCourse->title.'&sec_id='.$listCourse->id)}}" class="btn btn-primary">Толығырақ</a>
                                 @else

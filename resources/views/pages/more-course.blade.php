@@ -21,7 +21,7 @@
                             <div class="col-lg-12">
                                 <div class="card-body">
                                     <!-- <canvas id="TrafficChart"></canvas>   -->
-                                    {{ htmlspecialchars_decode($more->description) }}
+                                    {!! ($more->description) !!}
                                 </div>
                             </div>
                         </div>
