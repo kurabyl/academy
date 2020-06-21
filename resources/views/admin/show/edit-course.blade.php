@@ -62,7 +62,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">PRO</label>
-            <input type="checkbox"  name="lock" value="{{ $course->lock  }}" @if($course->lock == 1) checked @endif>
+            <input type="checkbox"  name="lock" value="{{ $course->lock == 1 ? 1 : 2 }}" @if($course->lock == 1) checked @endif>
         </div>
         </div>
         <div class="modal-footer">
