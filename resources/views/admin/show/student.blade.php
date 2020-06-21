@@ -9,6 +9,7 @@
 @stop
 
 @section('content')
+    @include('messages')
     <table id="table_id" class="display">
         <thead>
         <tr>
