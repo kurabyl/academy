@@ -44,6 +44,7 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/section/edit/{id}','Admin\ShowController@editSections');
     Route::get('/section/delete/{id}','Admin\AdminController@deleteSection');
+    Route::get('/user/delete/{id}','Admin\AdminController@deleteUser');
 
     Route::get('/course/edit/{id}','Admin\ShowController@editCourse');
     Route::get('/course/delete/{id}','Admin\CourseController@delete');

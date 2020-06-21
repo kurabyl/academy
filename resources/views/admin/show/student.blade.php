@@ -20,6 +20,7 @@
             <th>Инстаграм</th>
             <th>Телеграм</th>
             <th>Дата регистрация</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -34,6 +35,9 @@
                 <td>{{ $user->details['instagram'] }}</td>
                 <td>{{ $user->details['telegram'] }}</td>
                 <td>{{ $user->created_at }}</td>
+                <td>
+                    <a href="{{url('/admin/user/delete/'.$user->id)}}"><i class="fas fa-trash" style="color:red;"></i></a>
+                </td>
             </tr>
         @endforeach
         </tbody>
