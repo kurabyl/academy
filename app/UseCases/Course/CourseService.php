@@ -31,10 +31,12 @@ class CourseService
         $course->title = $request->title;
         $course->description = $request->description;
         $course->section_id = $request->section;
-        if($request->lock == 1)
-            $course->lock = 1;
-        else
+        if($request->lock == null)
+        {
             $course->lock = 0;
+        }else {
+            $course->lock = 1;
+        }
 
         if($request->hasFile('image')) {
 
