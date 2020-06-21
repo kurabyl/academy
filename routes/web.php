@@ -43,7 +43,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/applications','Admin\ShowController@showApplications');
 
     Route::get('/section/edit/{id}','Admin\ShowController@editSections');
-    Route::get('/section/delete/{id}','Admin\SectionController@deleteSection');
+    Route::get('/section/delete/{id}','Admin\AdminController@deleteSection');
 
     Route::get('/course/edit/{id}','Admin\ShowController@editCourse');
     Route::get('/course/delete/{id}','Admin\CourseController@delete');

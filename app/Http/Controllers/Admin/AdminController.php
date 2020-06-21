@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Entity\Application;
+use App\Entity\Course\Activate;
 use App\Entity\Course\Course;
 use App\Entity\Course\VideoCourse;
 use App\Entity\Section;
 use App\Entity\User\User;
+use App\Entity\User\UserDetails;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Section\SectionRequest;
 use App\UseCases\Section\SectionService;
@@ -55,6 +58,20 @@ class AdminController extends Controller
            $section->delete();
            return redirect()->back()->with('error','Успешно удалено');
         }
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        if($user)
+        {
+            UserDetails::where('user_id',$user->id)->delete();
+            Application::where('user_id',$user->id)->delete();
+            Activate::where('user_id',$user->id)->delete();
+            $user->delete();
+            return redirect()->back()->with('success','Успешно удалено');
+        }
+        return redirect()->back()->with('error','Сбой повторите позже');
     }
 
 }
