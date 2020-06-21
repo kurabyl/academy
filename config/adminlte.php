@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Academy</b>',
+    'logo' => '<b>Admin</b>LTE',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -226,6 +226,15 @@ return [
             'url'  => 'admin/students',
             'icon' => 'fas fa-fw fa-user',
         ],
+
+        [
+            'text' => 'Заявки',
+            'url'  => 'admin/applications',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+
+
     ],
 
     /*
