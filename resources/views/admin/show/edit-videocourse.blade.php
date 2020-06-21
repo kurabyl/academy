@@ -25,13 +25,13 @@
         </div>
         <input type="hidden" name="section" value="{{ request()->section ?? $video->section_id }}" >
 
-        @if(request()->section)
+        @if(request()->section ?? $video->section_id)
             <div class="form-group">
                 <label for="exampleInputEmail1">Курсы</label>
                 <select name="course" class="form-control">
 
 
-                        @foreach(\App\UseCases\Section\SectionListService::listCourse(request()->section) as $item)
+                        @foreach(\App\UseCases\Section\SectionListService::listCourse(request()->section ?? $video->section_id) as $item)
                         <option value="{{ $item->id }}" @if($video->course_id == $item->id) selected @endif>{{ $item->title }}</option>
                         @endforeach
 

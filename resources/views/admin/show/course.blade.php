@@ -120,4 +120,7 @@
             $('#table_id').DataTable();
         } );
     </script>
+    <script>
+        CKEDITOR.replace( 'description' );
+    </script>
 @stop
