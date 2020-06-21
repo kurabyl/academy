@@ -56,30 +56,9 @@
                         <div class="col-lg-7">
                             <div class="card-body">
                                 <div class="col-lg-12">
-                                    {{ $more->description }}
+                                    {{ htmlspecialchars_decode($more->description) }}
                                 </div>
                                 <div class="mb-3"></div>
-                                <div class="col-lg-12">
-                                    <h3>Комментарий</h3>
-                                    <div class="mb-3"></div>
-                                    <div class="card">
-
-                                        <div class="card-body">
-                                            <h5 class="card-title">Special title treatment</h5>
-                                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                            <a href="#" style="text-decoration: underline">Жауап беру</a>
-                                        <div class="col-md-12 mt-2" style="border-top: 1px dashed #cccccc;">
-                                            <div class="card-body" >
-                                                <h5 class="card-title">Special title treatment</h5>
-                                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                <a href="#" style="text-decoration: underline">Жауап беру</a>
-                                            </div>
-                                        </div>
-                                        </div>
-
-
-                                    </div>
-
 
                                 </div>
                             </div>
