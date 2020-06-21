@@ -68,7 +68,7 @@
         <div class="form-group">
             <label for="exampleInputEmail1">Описание</label><br/>
             <textarea name="description"  cols="50" rows="10" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    {{ htmlspecialchars_decode($video->description) }}
+                    {{ ($video->description) }}
                             </textarea>
             @error('description')
             <span class="invalid-feedback" role="alert">
