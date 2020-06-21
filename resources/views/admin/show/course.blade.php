@@ -115,6 +115,7 @@
 
 @section('js')
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
         $(document).ready( function () {
             $('#table_id').DataTable();

@@ -101,7 +101,7 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 @stop
 
 @section('js')
@@ -110,5 +110,8 @@
         $(document).ready( function () {
             $('#table_id').DataTable();
         } );
+    </script>
+    <script>
+        CKEDITOR.replace( 'description' );
     </script>
 @stop
