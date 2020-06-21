@@ -17,7 +17,7 @@ class CourseService
         $course = Course::create([
             'title'=>$request->title,
             'section_id'=>$request->section,
-            'description'=>htmlentities($request->description),
+            'description'=>htmlspecialchars($request->description),
             'image'=>$imageName,
             'lock'=>$request->lock
         ]);
@@ -29,7 +29,7 @@ class CourseService
     {
         $course = $this->getCourse($request->id);
         $course->title = $request->title;
-        $course->description = htmlentities($request->description);
+        $course->description = htmlspecialchars($request->description);
         $course->section_id = $request->section;
         if($request->lock == null)
         {
