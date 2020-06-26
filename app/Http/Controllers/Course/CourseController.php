@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Course;
 
 use App\Entity\Application;
+use App\Entity\Comment;
 use App\Entity\Course\Activate;
 use App\Entity\Course\Course;
 use App\Entity\Course\CourseActivate;
@@ -39,9 +40,13 @@ class CourseController extends Controller
     public function more($id)
     {
         $more = VideoCourse::findOrFail($id);
+        $comment = Comment::where('video_id',$id)->where('parent_id',0)->get();
         $course = $this->checkCourse($more->course_id);
         if($course) return redirect()->back()->with('warning','Бұл курс ақылы.');
-        return view('pages.more-course',['more'=>$more]);
+        return view('pages.more-course',[
+            'more'=>$more,
+            'comment'=>$comment
+        ]);
     }
 
 
@@ -78,6 +83,19 @@ class CourseController extends Controller
             'course_id'=>$request->course_id
         ]);
         return redirect()->back()->with('success','Рахмет сұраныс қабылданды');
+    }
+
+    public function addComment(Request $request)
+    {
+        $request->validate([
+                'comment'=>'required'
+        ]);
+        $comment = new Comment();
+        $comment->user_id = Auth::user()->id;
+        $comment->video_id= $request->id_video;
+        $comment->text = $request->comment;
+        $comment->save();
+        return redirect()->back()->with('success','Пікір қалдырғаныңызға рахмет!');
     }
 
 }
