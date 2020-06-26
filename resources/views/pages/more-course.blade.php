@@ -64,6 +64,7 @@
                                         </div>
                                             @endforeach
                                         @endif
+                                            <div class="mt-3"></div>
                                             <div class="col-md-12 col-md-offset-3" id="comments">
                                                 <div class="panel panel-info">
                                                     <div class="panel-body">
