@@ -39,7 +39,9 @@
                                 <div class="card-body">
                                     <h3>Пікірлер</h3>
                                     <div class="mt-3"></div>
+                                    @if($comment->count() > 0)
                                     <a href="#comments" class="btn btn-primary">Пікір қалдыру</a>
+                                    @endif
                                     <div class="mb-3"></div>
                                     <div class="card">
                                         @if($comment->count() > 0)
