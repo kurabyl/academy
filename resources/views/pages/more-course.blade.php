@@ -69,11 +69,11 @@
                                                 <div class="panel panel-info">
                                                     <div class="panel-body">
 
-                                                        <form class="form-inline" action="{{ url('student/add/comment') }}" method="post" onsubmit="">
+                                                        <form class="form-inline" action="{{ url('student/add/comment') }}" method="post" >
                                                             @csrf
                                                             <input type="hidden" name="id_video" value=" {{ request()->id }}">
                                                             <textarea placeholder="Осы жерге пікіріңізді қалдырыңыз" name="comment" class="pb-cmnt-textarea"></textarea>
-                                                            <input type="submit" value="Жіберу" class="btn btn-primary">
+                                                            <input type="submit" value="Жіберу" class="btn btn-primary mb-1" >
                                                         </form>
                                                     </div>
                                                 </div>
