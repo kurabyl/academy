@@ -121,9 +121,9 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="{{ url('student/profile') }}"><i class="fa fa- user"></i>Менім аккаунтым</a>
+                            <a class="nav-link" href="{{ url('student/profile') }}"><i class="fa fa- user"></i>Менің аккаунтым</a>
 
-                            <a class="nav-link" href="{{ url('student/mycourse') }}"><i class="fa fa- user"></i>Курстарым <span class="count">
+                            <a class="nav-link" href="{{ url('student/mycourse') }}"><i class="fa fa- user"></i>Менің курстарым <span class="count">
                                     {{ \App\UseCases\Section\SectionListService::mycourse()->count() }}
                                 </span></a>
 

@@ -1,3 +1,11 @@
+@if(Session::get('resetPassword') == 1)
+    <script>
+        alert('Өкінішке орай сіз көп сұраныс жасадыңыз')
+    </script>
+   <?php
+    Session::forget('resetPassword')
+   ?>
+@endif
 <!DOCTYPE html>
 <html lang="en">
 <head>

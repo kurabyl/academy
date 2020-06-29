@@ -40,6 +40,14 @@ class ResetPasswordController extends Controller
 
     public function reset(Request $request)
     {
+        if ($request->session()->get('tokenEmail')) {
+            $request->session()->put('resetPassword','1');
+            sleep(5);
+            return redirect()->back();
+        }
+        $request->validate([
+            'email'=>'required'
+        ]);
         $password = $this->generatePassword();
 
         $msg = "
@@ -64,6 +72,8 @@ class ResetPasswordController extends Controller
         request()->session()->put('forget', md5('forget'));
         if($send)
         {
+            $request->session()->put('tokenEmail',md5('asd'));
+
             User::where('email',$request->email)->update([
                 'password'=> Hash::make($password)
             ]);
