@@ -29,8 +29,7 @@
                             <div class="col-lg-12">
                                 <div class="card-body">
                                     <!-- <canvas id="TrafficChart"></canvas>   -->
-                                    <iframe width="1000" height="502" src="https://www.youtube.com/embed/NP0ukY6N5cg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+                                    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="NP0ukY6N5cg"></div>
                                 </div>
                             </div>
                         </div>
