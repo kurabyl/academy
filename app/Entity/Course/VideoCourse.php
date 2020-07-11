@@ -14,4 +14,14 @@ class VideoCourse extends Model
     protected $fillable = [
         'title', 'image','video','course_id','description','section_id'
     ];
+
+    public function getDopVideo($id)
+    {
+        return DopVideo::find($id);
+    }
+    public function dvideo()
+    {
+        return $this->hasMany(DopVideo::class,'video_id');
+    }
+
 }

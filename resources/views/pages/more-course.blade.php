@@ -26,9 +26,52 @@
                             <div class="col-lg-12">
                                 <div class="card-body">
                                     <!-- <canvas id="TrafficChart"></canvas>   -->
-                                    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="{{ $more->video }}"></div>
+                                    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="{{ request()->another ? $more->getDopVideo(request()->another)->video : $more->video  }}"></div>
                                 </div>
+
+
                             </div>
+                            <div class="col-lg-12">
+                                <div class="card-body">
+                                    @if(request()->another)
+                                        <a href="{{ url(Request::url().'?section='.request()->section
+                                        .'&sec_id='.request()->sec_id.'&c='.request()->c) }}">
+                                    <div style="float: left;width: 190px;height: 110px;background: #ddd;margin: 5px;">
+                                           <div style="text-align: center;">
+                                            <span style="line-height: 118px;font-weight: bold;">
+                                                1-ші
+                                                сабақ
+                                            </span>
+
+                                           </div>
+                                    </div>
+                                        </a>
+                                   @endif
+
+                                    @if($more->dvideo()->count() > 0)
+                                    @foreach($more->dvideo as $item)
+                                        @if($item->id != request()->another)
+                                        <a href="{{ url(Request::url().'?section='.request()->section
+                                        .'&sec_id='.request()->sec_id.'&c='.request()->c.'&another='.$item->id) }}">
+
+
+                                        <div style="float: left;width: 190px;height: 110px;background: #ddd;margin: 5px;">
+                                            <div style="text-align: center;">
+                                                <span style="line-height: 118px;font-weight: bold;">
+                                                    {{ $loop->index + 2 }}-ші
+                                                    сабақ
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                        </a>
+                                        @endif
+                                    @endforeach
+                                    @endif
+                                </div>
+
+                            </div>
+
                             <div class="col-lg-12">
                                 <div class="card-body">
                                     <!-- <canvas id="TrafficChart"></canvas>   -->
