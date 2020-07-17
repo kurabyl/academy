@@ -38,9 +38,8 @@
                                         .'&sec_id='.request()->sec_id.'&c='.request()->c) }}">
                                     <div style="float: left;width: 190px;height: 110px;background: #ddd;margin: 5px;">
                                            <div style="text-align: center;">
-                                            <span style="line-height: 118px;font-weight: bold;">
-                                                1-ші
-                                                сабақ
+                                            <span style="line-height: 118px;font-weight: bold;font-size: 13px;">
+                                                {{ $more->title }}
                                             </span>
 
                                            </div>
@@ -57,9 +56,8 @@
 
                                         <div style="float: left;width: 190px;height: 110px;background: #ddd;margin: 5px;">
                                             <div style="text-align: center;">
-                                                <span style="line-height: 118px;font-weight: bold;">
-                                                    {{ $loop->index + 2 }}-ші
-                                                    сабақ
+                                                <span style="line-height: 118px;font-weight: bold;font-size: 13px;">
+                                                    {{ $item->title }}
                                                 </span>
 
                                             </div>
