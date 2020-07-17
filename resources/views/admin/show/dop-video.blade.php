@@ -10,43 +10,29 @@
 
 @section('content')
     @include('messages')
-
-    <a href="{{ url('/admin/videocourse/add')}} " class="btn btn-primary">
-        Добавить
-    </a>
-    <a href="{{ url('/admin/videocourse/add/?dopvideo=1')}} " class="btn btn-primary">
-        Добавить доп.видео
-    </a>
     <p></p>
     <table id="table_id" class="display">
         <thead>
         <tr>
             <th>#</th>
-            <th>КУРС</th>
             <th>Название</th>
             <th>Видео</th>
-            <th>Доп видео</th>
-            <th>Описание</th>
-            <th>Фотография</th>
             <th>Действия</th>
 
         </tr>
         </thead>
         <tbody>
-
-        @foreach($video->videos as $item)
-            <tr>
-                <td>{{ $loop->index + 1 }}</td>
-                <td>{{ $video->title }}</td>
-                <td>{{ $item->title }}</td>
-                <td>{{ $item->video }}</td>
-                <td><a href="{{ url('/admin/dopvideo/list/'.$item->id)}}">Открыть</a></td>
-                <td>{!!  ($item->description) !!}</td>
-                <td><img src="{{ asset('image_course/'.$item->image) }}" alt="" width="140"></td>
-                <td><a href="{{url('/admin/videocourse/edit/'.$item->id)}}"><i class="fas fa-edit"></i></a>
-                    <a href="{{url('/admin/videocourse/delete/'.$item->id)}}"><i class="fas fa-trash" style="color:red;"></i></a></td>
-            </tr>
-        @endforeach
+        @if($video->count() > 0)
+            @foreach($video as $item)
+                <tr>
+                    <td>{{ $loop->index + 1 }}</td>
+                    <td>{{ $item->title }}</td>
+                    <td>{{ $item->video }}</td>
+                    <td><a href="{{url('/admin/dopvideo/edit/'.$item->id)}}"><i class="fas fa-edit"></i></a>
+                        <a href="{{url('/admin/dopvideo/delete/'.$item->id)}}"><i class="fas fa-trash" style="color:red;"></i></a></td>
+                </tr>
+            @endforeach
+        @endif
         </tbody>
     </table>
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

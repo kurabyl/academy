@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Entity\Application;
 use App\Entity\Course\Activate;
 use App\Entity\Course\Course;
+use App\Entity\Course\DopVideo;
 use App\Entity\Course\VideoCourse;
 use App\Entity\Section;
 use App\Entity\User\User;
@@ -59,6 +60,7 @@ class ShowController extends Controller
     {
         return view('admin.show.add-videocourse',[
             'sections'=>Section::all(),
+            'video'=>VideoCourse::all(),
 
         ]);
     }
@@ -95,5 +97,20 @@ class ShowController extends Controller
         $status->save();
 
         return redirect()->back()->with('success','Успешно деактировано');
+    }
+
+    public function showDopVideo($id)
+    {
+        return view('admin.show.dop-video',[
+            'video'=>DopVideo::where('video_id',$id)->get(),
+
+        ]);
+    }
+    public function showEditDopVideo($id)
+    {
+        return view('admin.show.edit-dopvideo',[
+            'videos'=>DopVideo::find($id),
+            'video'=>VideoCourse::all(),
+        ]);
     }
 }

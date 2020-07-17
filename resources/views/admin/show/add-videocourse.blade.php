@@ -10,7 +10,7 @@
 
 @section('content')
     @include('messages')
-
+    @if(!request()->dopvideo)
     <form action="{{ route('add_videocourse') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
@@ -88,7 +88,50 @@
             <button type="submit" class="btn btn-primary">Добавить</button>
         </div>
     </form>
+    @else
+        <form action="{{ route('add_dopvideo') }}" method="POST" enctype="multipart/form-data">
+            @csrf
 
+            <div class="form-group">
+                <label for="exampleInputEmail1">Видео</label>
+                <select name="video_id"  class="form-control" >
+                    <option value=""></option>
+                    @foreach($video as $item)
+                        <option value="{{ $item->id }}">{{ $item->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="exampleInputEmail1">Название</label>
+                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                @error('title')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="exampleInputEmail1">Видео</label>
+                <input type="text" class="form-control @error('video') is-invalid @enderror" name="video" value="{{ old('video') }}" id="exampleInputEmail1" aria-describedby="emailHelp">
+                @error('video')
+                <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </div>
+        </form>
+    @endif
 @stop
 
 @section('css')

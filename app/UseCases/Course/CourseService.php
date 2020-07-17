@@ -3,6 +3,7 @@
 namespace App\UseCases\Course;
 
 use App\Entity\Course\Course;
+use App\Entity\Course\DopVideo;
 use App\Entity\Course\VideoCourse;
 use Illuminate\Support\Facades\File;
 
@@ -100,5 +101,30 @@ class CourseService
     private function getCourse($id)
     {
         return Course::findOrFail($id);
+    }
+
+    public function createDopVideo($request)
+    {
+        $video = DopVideo::create([
+            'title'=>$request->title,
+            'video_id'=>$request->video_id,
+            'video'=>$request->video,
+
+        ]);
+
+        return $video;
+    }
+
+    public function editDopVideo($request)
+    {
+        $video = DopVideo::findOrFail($request->id);
+
+        $video->title = $request->title;
+        $video->video_id = $request->video_id;
+        $video->video  = $request->video;
+
+        $video->save();
+
+        return $video;
     }
 }

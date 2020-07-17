@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Entity\Application;
 use App\Entity\Course\Activate;
 use App\Entity\Course\Course;
+use App\Entity\Course\DopVideo;
 use App\Entity\Course\VideoCourse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DopVideoRequest;
 use App\Http\Requests\ImageRequest;
 use App\Http\Requests\Section\SectionRequest;
 use App\Jobs\Activition;
@@ -40,8 +42,7 @@ class CourseController extends Controller
     public function delete($id)
     {
         $course = Course::find($id);
-        if($course)
-        {
+        if($course) {
             @unlink(public_path('image_course/'.$course->image));
             $video = VideoCourse::where('course_id',$course->id)->get();
             if($video->count() > 0)
@@ -94,9 +95,31 @@ class CourseController extends Controller
     public function deleteVideo($id)
     {
         $video = VideoCourse::find($id);
-        if($video)
-        {
+        if($video) {
             @unlink(public_path('image_course/'.$video->image));
+            $video->delete();
+            return redirect()->back()->with('error','Успешно удалено');
+        }
+    }
+
+    public function addDopVideo(DopVideoRequest $request)
+    {
+        $video = $this->service->createDopVideo($request);
+        if($video)
+            return redirect()->back()->with('success','Успешно добавлено');
+    }
+
+    public function editDopVideo(DopVideoRequest $request)
+    {
+        $video = $this->service->editDopVideo($request);
+        if($video)
+            return redirect()->back()->with('success','Успешно изменено');
+    }
+
+    public function deleteDopVideo($id)
+    {
+        $video = DopVideo::find($id);
+        if($video) {
             $video->delete();
             return redirect()->back()->with('error','Успешно удалено');
         }

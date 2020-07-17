@@ -72,6 +72,13 @@ Route::prefix('admin')->group(function(){
     Route::post('videcourse/add','Admin\CourseController@addVideo')->name('add_videocourse');
     Route::post('videocourse/edit','Admin\CourseController@editVideo')->name('edit_videocourse');
     Route::post('application/active','Admin\CourseController@activeCourse')->name('active_application');
+
+    Route::post('dopvideo/add','Admin\CourseController@addDopVideo')->name('add_dopvideo');
+    Route::post('dopvideo/edits/','Admin\CourseController@editDopVideo')->name('edit_dopvideo');
+    Route::get('/dopvideo/delete/{id}','Admin\CourseController@deleteDopVideo');
+    Route::get('/dopvideo/list/{id}','Admin\ShowController@showDopVideo');
+    Route::get('/dopvideo/edit/{id}','Admin\ShowController@showEditDopVideo');
+
 });
 
 
