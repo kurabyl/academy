@@ -66,7 +66,8 @@ class CourseService
             'course_id'=>$request->course,
             'video'=>$request->video,
             'description'=>$request->description,
-            'image'=>$imageName
+            'image'=>$imageName,
+            'status'=>$request->lock
         ]);
 
         return $course;
@@ -81,6 +82,13 @@ class CourseService
         $video->section_id = $request->section;
         $video->course_id = $request->course;
         $video->video  = $request->video;
+
+        if($request->lock == null)
+        {
+            $video->status = 0;
+        }else {
+            $video->status = 1;
+        }
 
         if($request->hasFile('image')) {
 
