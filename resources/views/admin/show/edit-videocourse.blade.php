@@ -90,7 +90,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Никому не видно</label>
-            <input type="checkbox"  name="lock" value="{{ $course->status }}" @if($course->status == 1) checked @endif>
+            <input type="checkbox"  name="lock" value="{{ $video->status }}" @if($video->status == 1) checked @endif>
         </div>
         </div>
         <div class="modal-footer">

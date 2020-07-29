@@ -81,7 +81,10 @@
                 <label class="custom-file-label" for="input-cover">Выбрать файл</label>
             </div>
         </div>
-
+        <div class="form-group">
+            <label for="exampleInputEmail1">Никому не видно</label>
+            <input type="checkbox"  name="lock" value="1">
+        </div>
         </div>
         <div class="modal-footer">
 
@@ -126,10 +129,7 @@
                 @enderror
 
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Никому не видно</label>
-                <input type="checkbox"  name="lock" value="1">
-            </div>
+
             <div class="modal-footer">
 
                 <button type="submit" class="btn btn-primary">Добавить</button>
