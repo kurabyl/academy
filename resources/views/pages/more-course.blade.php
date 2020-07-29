@@ -36,7 +36,7 @@
                                     @if(request()->another)
                                         <a href="{{ url(Request::url().'?section='.request()->section
                                         .'&sec_id='.request()->sec_id.'&c='.request()->c) }}">
-                                    <div style="float: left;width: 190px;height: 110px;background: #ddd;margin: 5px;">
+                                    <div style="background: #ddd;" class="col-md-4">
                                            <div style="text-align: center;">
                                             <span style="line-height: 118px;font-weight: bold;font-size: 13px;">
                                                 {{ $more->title }}
@@ -54,7 +54,7 @@
                                         .'&sec_id='.request()->sec_id.'&c='.request()->c.'&another='.$item->id) }}">
 
 
-                                        <div style="float: left;width: 190px;height: 110px;background: #ddd;margin: 5px;">
+                                        <div style="background: #ddd;" class="col-md-4">
                                             <div style="text-align: center;">
                                                 <span style="line-height: 118px;font-weight: bold;font-size: 13px;">
                                                     {{ $item->title }}
