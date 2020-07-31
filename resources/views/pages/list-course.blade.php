@@ -31,16 +31,18 @@
         <div class="animated fadeIn">
             <div class="row">
                 @foreach($listCourse->videos as $item)
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="{{ asset('image_course/'.$item->image) }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title mb-3">{{ $item->title }}</h4>
-                                <p></p>
-                                <a href="{{url('student/course/more/'.$item->id.'/?section='.request()->section.'&sec_id='.request()->sec_id.'&c='.$item->title.'&c_id='.$item->id)}}" class="btn btn-success">Сабақ оку</a>
+                    @if($item->status == 0)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ asset('image_course/'.$item->image) }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-3">{{ $item->title }}</h4>
+                                    <p></p>
+                                    <a href="{{url('student/course/more/'.$item->id.'/?section='.request()->section.'&sec_id='.request()->sec_id.'&c='.$item->title.'&c_id='.$item->id)}}" class="btn btn-success">Сабақ оку</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endforeach
             </div><!-- .row -->
         </div>

@@ -15,7 +15,7 @@ class Course extends Model
 
     public function videos()
     {
-        return $this->hasMany(VideoCourse::class)->where('status',0);
+        return $this->hasMany(VideoCourse::class);
     }
 
     public function activate()
