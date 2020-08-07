@@ -99,11 +99,14 @@ class StudentController extends Controller
         $userIp  = \request()->ip();
         $logExists = UserLog::where('user_id',Auth::user()->id);
 
-        UserLog::create([
-            'user_id'=>Auth::user()->id,
-            'session'=>request()->cookie('cookieName'),
-            'ip'=>$userIp,
-        ]);
+        if (request()->cookie('cookieName')) {
+            UserLog::create([
+                'user_id'=>Auth::user()->id,
+                'session'=>request()->cookie('cookieName'),
+                'ip'=>$userIp,
+            ]);
+        }
+
 
         if($logExists->first()->session != request()->cookie('cookieName')) {
             return false;
