@@ -9,6 +9,7 @@ use App\Entity\UserLog;
 use App\UseCases\Section\SectionListService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Cookie;
 
 class StudentController extends Controller
 {
