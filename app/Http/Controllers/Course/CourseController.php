@@ -16,7 +16,7 @@ use App\Http\Controllers\Controller;
 use App\Jobs\Activition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Cookie;
 
 class CourseController extends Controller
 {
