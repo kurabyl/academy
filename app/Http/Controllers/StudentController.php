@@ -106,11 +106,10 @@ class StudentController extends Controller
                 'session'=>request()->cookie('cookieName'),
                 'ip'=>$userIp,
             ]);
-        }
-
-
-        if($logExists->first()->session != request()->cookie('cookieName')) {
-            return false;
+        }else {
+            if($logExists->first()->session != request()->cookie('cookieName')) {
+                return false;
+            }
         }
 
         return true;
