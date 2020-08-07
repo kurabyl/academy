@@ -10,6 +10,7 @@ use App\UseCases\Section\SectionListService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Cookie;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -70,7 +71,7 @@ class StudentController extends Controller
         $user->name = $request->name;
 
         if ($request->password){
-            $user->password = $request->password;
+            $user->password = Hash::make($request->password);
         }
 
         $user->save();
