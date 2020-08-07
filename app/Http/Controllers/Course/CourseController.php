@@ -11,6 +11,7 @@ use App\Entity\Course\CourseActivate;
 use App\Entity\Course\VideoCourse;
 use App\Entity\User\User;
 use App\Entity\User\UserDetails;
+use App\Entity\UserLog;
 use App\Http\Controllers\Controller;
 use App\Jobs\Activition;
 use Illuminate\Http\Request;
@@ -23,10 +24,17 @@ class CourseController extends Controller
     public function __construct()
     {
         $this->middleware(['auth','role:student']);
+
+        if(!request()->cookie('cookieName')) {
+            Cookie::queue(Cookie::make('cookieName', md5(rand(99999,999999)), 3600000));
+        }
     }
 
     public function list($id)
     {
+        if(!$this->checkSession()) {
+            Auth::logout();
+        }
 
         $course = $this->checkCourse($id);
         if($course) return redirect()->back()->with('warning','Бұл курс ақылы.');
@@ -39,6 +47,10 @@ class CourseController extends Controller
 
     public function more($id)
     {
+        if(!$this->checkSession()) {
+            Auth::logout();
+        }
+
         $more = VideoCourse::findOrFail($id);
         $comment = Comment::where('video_id',$id)->where('parent_id',0)->get();
         $course = $this->checkCourse($more->course_id);
@@ -96,6 +108,26 @@ class CourseController extends Controller
         $comment->text = $request->comment;
         $comment->save();
         return redirect()->back()->with('success','Пікір қалдырғаныңызға рахмет!');
+    }
+
+    private  function checkSession()
+    {
+
+        $userIp  = \request()->ip();
+        $logExists = UserLog::where('user_id',Auth::user()->id);
+
+        UserLog::create([
+            'user_id'=>Auth::user()->id,
+            'session'=>request()->cookie('cookieName'),
+            'ip'=>$userIp,
+        ]);
+
+        if($logExists->first()->session != request()->cookie('cookieName')) {
+            return false;
+        }
+
+        return true;
+
     }
 
 }

@@ -118,6 +118,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+
                                                         </div><!-- /.col -->
                                                     </div><!-- /.row -->
 
@@ -176,6 +177,11 @@
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Instagram</label>
                                                                     <input type="text" class="form-control" name="instagram" value="{{ $user->details['instagram'] }}">
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Құпиясөз</label>
+                                                                    <input type="text" class="form-control" name="password">
                                                                 </div>
                                                                 <button type="submit" class="btn btn-primary">Сақтау</button>
                                                             </form>

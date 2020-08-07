@@ -29,7 +29,7 @@
                             <div class="col-lg-12">
                                 <div class="card-body">
                                     <!-- <canvas id="TrafficChart"></canvas>   -->
-                                    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="NP0ukY6N5cg"></div>
+                                    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="kRq6nw-FFJ0"></div>
                                 </div>
                             </div>
                         </div>
