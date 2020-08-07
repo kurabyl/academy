@@ -123,8 +123,10 @@ class CourseController extends Controller
                 'ip'=>$userIp,
             ]);
         }else {
-            if($logExists->first()->session != request()->cookie('cookieName')) {
-                return false;
+            if($logExists->exists()) {
+                if($logExists->first()->session != request()->cookie('cookieName')) {
+                    return false;
+                }
             }
         }
 
