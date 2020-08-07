@@ -116,7 +116,7 @@ class CourseController extends Controller
         $userIp  = \request()->ip();
         $logExists = UserLog::where('user_id',Auth::user()->id);
 
-        if (request()->cookie('cookieName')) {
+        if (!request()->cookie('cookieName')) {
             UserLog::create([
                 'user_id'=>Auth::user()->id,
                 'session'=>request()->cookie('cookieName'),
