@@ -105,13 +105,13 @@ class StudentController extends Controller
             }
             UserLog::create([
                 'user_id' => Auth::user()->id,
-                'session' => request()->cookie('cookieName'),
+                'session' => request()->cookie('cookieName') ?? '1',
                 'ip' => $userIp,
             ]);
         }else {
             UserLog::create([
                 'user_id' => Auth::user()->id,
-                'session' => request()->cookie('cookieName'),
+                'session' => request()->cookie('cookieName') ?? '1',
                 'ip' => $userIp,
             ]);
         }
