@@ -118,12 +118,13 @@ class CourseController extends Controller
         if ($logExists->exists()) {
             if ($logExists->first()->session == request()->cookie('cookieName')) {
                 return true;
+            }else {
+                UserLog::create([
+                    'user_id' => Auth::user()->id,
+                    'session' => request()->cookie('cookieName') ?? '1',
+                    'ip' => $userIp,
+                ]);
             }
-            UserLog::create([
-                'user_id' => Auth::user()->id,
-                'session' => request()->cookie('cookieName') ?? '1',
-                'ip' => $userIp,
-            ]);
         }else {
             UserLog::create([
                 'user_id' => Auth::user()->id,
