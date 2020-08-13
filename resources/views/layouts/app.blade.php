@@ -124,7 +124,7 @@
                             <a class="nav-link" href="{{ url('student/profile') }}"><i class="fa fa- user"></i>Менің аккаунтым</a>
 
                             <a class="nav-link" href="{{ url('student/mycourse') }}"><i class="fa fa- user"></i>Менің курстарым <span class="count">
-                                    {{ \App\UseCases\Section\SectionListService::mycourse()->count() }}
+                                    {{ \App\UseCases\Section\SectionListService::mycourse()->count() ?? 0 }}
                                 </span></a>
 
 
