@@ -114,24 +114,16 @@ class CourseController extends Controller
     {
         $userIp  = \request()->ip();
         $logExists = UserLog::where('user_id',Auth::user()->id);
-        if ($logExists->exists()) {
 
-            if (\request()->cookie('cookieName') === $logExists->first()->session) {
+        if ($logExists->exists()) {
+            if ($logExists->first()->session == request()->cookie('cookieName')) {
                 return true;
-            }else {
-                if ($logExists->count() != 3) {
-                    if(request()->cookie('cookieName')) {
-                        UserLog::create([
-                            'user_id' => Auth::user()->id,
-                            'session' => request()->cookie('cookieName'),
-                            'ip' => $userIp,
-                        ]);
-                    }
-                    return true;
-                }else {
-                    return false;
-                }
             }
+            UserLog::create([
+                'user_id' => Auth::user()->id,
+                'session' => request()->cookie('cookieName'),
+                'ip' => $userIp,
+            ]);
         }else {
             UserLog::create([
                 'user_id' => Auth::user()->id,
@@ -139,6 +131,13 @@ class CourseController extends Controller
                 'ip' => $userIp,
             ]);
         }
+
+        if ($logExists->count() != 3) {
+            return true;
+        }
+
+        return false;
+
 
     }
 
