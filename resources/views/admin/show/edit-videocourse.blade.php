@@ -50,7 +50,6 @@
             @enderror
 
         </div>
-
         <div class="form-group">
 
             <label for="exampleInputEmail1">Видео</label>

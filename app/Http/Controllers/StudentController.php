@@ -18,26 +18,16 @@ class StudentController extends Controller
     public function __construct()
     {
         $this->middleware(['auth','role:student']);
-
-        if(!request()->cookie('cookieName')) {
-            Cookie::queue(Cookie::make('cookieName', md5(rand(99999,999999)), 3600000));
-        }
     }
 
     public function index()
     {
-        if(!$this->checkSession()) {
-            Auth::logout();
-        }
+
         return view('home');
     }
 
     public function profile()
     {
-        if(!$this->checkSession()) {
-            Auth::logout();
-        }
-
         return view('profile',['user'=>Auth::user()]);
     }
 
@@ -92,37 +82,5 @@ class StudentController extends Controller
         return view('pages.mycourse',[
             'listCourse'=>SectionListService::mycourse()->get()
         ]);
-    }
-
-    private  function checkSession()
-    {
-        $userIp  = \request()->ip();
-        $logExists = UserLog::where('user_id',Auth::user()->id);
-
-        if ($logExists->exists()) {
-            if ($logExists->first()->session == request()->cookie('cookieName')) {
-                return true;
-            }else {
-                UserLog::create([
-                    'user_id' => Auth::user()->id,
-                    'session' => request()->cookie('cookieName') ?? '1',
-                    'ip' => $userIp,
-                ]);
-            }
-        }else {
-            UserLog::create([
-                'user_id' => Auth::user()->id,
-                'session' => request()->cookie('cookieName') ?? '1',
-                'ip' => $userIp,
-            ]);
-        }
-
-        if ($logExists->count() != 3) {
-            return true;
-        }
-
-        return false;
-
-
     }
 }

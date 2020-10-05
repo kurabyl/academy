@@ -5,6 +5,7 @@ namespace App\UseCases\Course;
 use App\Entity\Course\Course;
 use App\Entity\Course\DopVideo;
 use App\Entity\Course\VideoCourse;
+use App\Entity\VideoGroup;
 use Illuminate\Support\Facades\File;
 
 class CourseService
@@ -70,6 +71,13 @@ class CourseService
             'status'=>$request->lock
         ]);
 
+        if ($request->group) {
+            VideoGroup::create([
+                'video_id'=>$course->id,
+                'group_id'=>$request->group
+            ]);
+        }
+
         return $course;
     }
 
@@ -101,6 +109,12 @@ class CourseService
             $video->image = $request->old_image;
         }
 
+        if ($request->group) {
+            VideoGroup::create([
+                'video_id'=>$video->id,
+                'group_id'=>$request->group
+            ]);
+        }
         $video->save();
 
         return $video;

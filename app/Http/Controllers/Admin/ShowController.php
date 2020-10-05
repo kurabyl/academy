@@ -7,6 +7,7 @@ use App\Entity\Course\Activate;
 use App\Entity\Course\Course;
 use App\Entity\Course\DopVideo;
 use App\Entity\Course\VideoCourse;
+use App\Entity\Group;
 use App\Entity\Section;
 use App\Entity\User\User;
 use App\Http\Controllers\Controller;
@@ -23,6 +24,14 @@ class ShowController extends Controller
     public function showSections()
     {
         return view('admin.show.section',['sections'=>Section::all()]);
+    }
+
+    public function showGroups()
+    {
+        return view('admin.show.groups',[
+            'groups'=>Group::getGroups(),
+            'users'=>User::where('role','student')->get()
+        ]);
     }
 
     public function showCourse()
@@ -42,6 +51,10 @@ class ShowController extends Controller
     {
         return view('admin.show.edit-section',['section'=>Section::findOrFail($id)]);
     }
+    public function editGroups($id)
+    {
+        return view('admin.show.edit-groups',['groups'=>Group::findOrFail($id)]);
+    }
 
     public function editCourse($id)
     {
@@ -60,6 +73,7 @@ class ShowController extends Controller
     {
         return view('admin.show.add-videocourse',[
             'sections'=>Section::all(),
+            'groups'=>Group::getGroups(),
             'video'=>VideoCourse::all(),
 
         ]);

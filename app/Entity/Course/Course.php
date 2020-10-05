@@ -2,6 +2,7 @@
 
 namespace App\Entity\Course;
 
+use App\Entity\VideoGroup;
 use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
@@ -22,4 +23,6 @@ class Course extends Model
     {
         return $this->hasOne(Activate::class);
     }
+
+
 }

@@ -217,6 +217,11 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Группы',
+            'url'  => 'admin/groups',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text' => 'Курсы',
             'url'  => 'admin/course',
             'icon' => 'fas fa-fw fa-user',

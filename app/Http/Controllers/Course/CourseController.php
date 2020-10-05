@@ -24,21 +24,12 @@ class CourseController extends Controller
     public function __construct()
     {
         $this->middleware(['auth','role:student']);
-
-        if(!request()->cookie('cookieName')) {
-            Cookie::queue(Cookie::make('cookieName', md5(rand(99999,999999)), 3600000));
-        }
     }
 
     public function list($id)
     {
-        if(!$this->checkSession()) {
-            Auth::logout();
-        }
-
         $course = $this->checkCourse($id);
         if($course) return redirect()->back()->with('warning','Бұл курс ақылы.');
-
         $listCourse = Course::findOrFail($id);
         return view('pages.list-course',[
             'listCourse'=>$listCourse
@@ -47,9 +38,6 @@ class CourseController extends Controller
 
     public function more($id)
     {
-        if(!$this->checkSession()) {
-            Auth::logout();
-        }
 
         $more = VideoCourse::findOrFail($id);
         $comment = Comment::where('video_id',$id)->where('parent_id',0)->get();
@@ -110,36 +98,5 @@ class CourseController extends Controller
         return redirect()->back()->with('success','Пікір қалдырғаныңызға рахмет!');
     }
 
-    private  function checkSession()
-    {
-        $userIp  = \request()->ip();
-        $logExists = UserLog::where('user_id',Auth::user()->id);
-
-        if ($logExists->exists()) {
-            if ($logExists->first()->session == request()->cookie('cookieName')) {
-                return true;
-            }else {
-                UserLog::create([
-                    'user_id' => Auth::user()->id,
-                    'session' => request()->cookie('cookieName') ?? '1',
-                    'ip' => $userIp,
-                ]);
-            }
-        }else {
-            UserLog::create([
-                'user_id' => Auth::user()->id,
-                'session' => request()->cookie('cookieName') ?? '1',
-                'ip' => $userIp,
-            ]);
-        }
-
-        if ($logExists->count() != 3) {
-            return true;
-        }
-
-        return false;
-
-
-    }
 
 }

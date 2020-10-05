@@ -32,6 +32,7 @@
             <div class="row">
                 @foreach($listCourse->videos as $item)
                     @if($item->status == 0)
+                       @if($item->groups($item->id))
                         <div class="col-md-4">
                             <div class="card">
                                 <img class="card-img-top" src="{{ asset('image_course/'.$item->image) }}" alt="Card image cap">
@@ -42,6 +43,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     @endif
                 @endforeach
             </div><!-- .row -->

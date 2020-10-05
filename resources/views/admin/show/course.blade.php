@@ -64,6 +64,8 @@
                             </select>
                         </div>
 
+
+
                         <div class="form-group">
                             <label for="exampleInputEmail1">Название</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" name="title" value="{{ old('title') }}" id="exampleInputEmail1" aria-describedby="emailHelp">

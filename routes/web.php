@@ -38,13 +38,17 @@ Route::prefix('admin')->group(function(){
     //Get Requests
     Route::get('/', 'Admin\AdminController@index');
     Route::get('/sections','Admin\ShowController@showSections');
+    Route::get('/groups','Admin\ShowController@showGroups');
     Route::get('/course',  'Admin\ShowController@showCourse');
     Route::get('/students','Admin\ShowController@showStudents');
 
     Route::get('/applications','Admin\ShowController@showApplications');
 
     Route::get('/section/edit/{id}','Admin\ShowController@editSections');
+    Route::get('/groups/edit/{id}','Admin\ShowController@editGroups');
     Route::get('/section/delete/{id}','Admin\AdminController@deleteSection');
+    Route::get('/groups/delete/{id}','Admin\AdminController@deleteGroups');
+
     Route::get('/user/delete/{id}','Admin\AdminController@deleteUser');
 
     Route::get('/course/edit/{id}','Admin\ShowController@editCourse');
@@ -63,6 +67,11 @@ Route::prefix('admin')->group(function(){
     //Post Requests Section
     Route::post('section/add','Admin\AdminController@addSection')->name('add_section');
     Route::post('section/edit','Admin\AdminController@editSection')->name('edit_section');
+
+    Route::post('group/add','Admin\AdminController@addGroups')->name('add_groups');
+    Route::post('group/edit','Admin\AdminController@editGroups')->name('edit_groups');
+
+    Route::post('group/addtogroupstudent','Admin\AdminController@addStudentsToGroup')->name('add_student_to_group');
 
     //Post Requests Course
     Route::post('course/add','Admin\CourseController@add')->name('add_course');

@@ -39,6 +39,16 @@
         @endif
 
         <div class="form-group">
+            <label for="">Группа</label>
+            <select name="group" id="" class="form-control">
+                <option value=""></option>
+                @foreach($groups as $item)
+                    <option value="{{ $item->id  }}"> {{ $item->title }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
 
             <label for="exampleInputEmail1">Название</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" id="exampleInputEmail1" aria-describedby="emailHelp">
