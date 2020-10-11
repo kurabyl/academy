@@ -115,4 +115,10 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Успешно добавлено');
     }
 
+    public function deleteUserGroup($user,$group)
+    {
+        $group = Group::where(['group_id'=>$group,'user_id'=>$user])->delete();
+        return redirect()->back()->with('success','Успешно удалено');
+    }
+
 }

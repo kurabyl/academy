@@ -34,6 +34,15 @@ class ShowController extends Controller
         ]);
     }
 
+    public function showGroup($id)
+    {
+        return view('admin.show.show-groups',[
+            'group'=>Group::find($id),
+            'groups'=>Group::getGroups(),
+            'users'=>User::where('role','student')->get()
+        ]);
+    }
+
     public function showCourse()
     {
         return view('admin.show.course',[
@@ -83,6 +92,7 @@ class ShowController extends Controller
     {
         return view('admin.show.edit-videocourse',[
             'video'=>VideoCourse::findOrFail($id),
+            'groups'=>Group::getGroups(),
             'sections'=>Section::all()
         ]);
     }

@@ -110,10 +110,19 @@ class CourseService
         }
 
         if ($request->group) {
-            VideoGroup::create([
-                'video_id'=>$video->id,
-                'group_id'=>$request->group
-            ]);
+            if (VideoGroup::where(['video_id'=>$video->id])->exists()) {
+                VideoGroup::where(['video_id'=>$video->id])->delete();
+                VideoGroup::create([
+                    'video_id'=>$video->id,
+                    'group_id'=>$request->group
+                ]);
+            }else {
+                VideoGroup::create([
+                    'video_id'=>$video->id,
+                    'group_id'=>$request->group
+                ]);
+            }
+
         }
         $video->save();
 

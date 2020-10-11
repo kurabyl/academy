@@ -51,6 +51,17 @@
 
         </div>
         <div class="form-group">
+            <label for="">Группа</label>
+
+            <select name="group" id="" class="form-control">
+                <option value=""></option>
+                @foreach($groups as $item)
+
+                    <option value="{{ $item->id  }}" @if($item->videoGroup['group_id'] == $item->id) selected @endif> {{ $item->title }} </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
 
             <label for="exampleInputEmail1">Видео</label>
             <input type="text" class="form-control @error('video') is-invalid @enderror" name="video" value="{{ $video->video }}" id="exampleInputEmail1" aria-describedby="emailHelp">

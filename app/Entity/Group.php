@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Entity\User\User;
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Group extends Model
 {
@@ -18,5 +20,24 @@ class Group extends Model
         if (self::where(['group_id'=>$groupId,'user_id'=>$key])->exists())
             return false;
         return true;
+    }
+
+    public function countUsers($id)
+    {
+        return self::where('group_id',$id)->count();
+    }
+
+    public function users($id)
+    {
+        return DB::table('groups')
+                ->join('users','users.id','=','groups.user_id')
+                ->where('groups.group_id',$id)
+                ->select('users.name','users.email','users.id')
+                ->get();
+    }
+
+    public function videoGroup()
+    {
+        return $this->belongsTo(VideoGroup::class,'id','group_id')->where('video_id',request()->id);
     }
 }

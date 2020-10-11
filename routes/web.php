@@ -39,6 +39,9 @@ Route::prefix('admin')->group(function(){
     Route::get('/', 'Admin\AdminController@index');
     Route::get('/sections','Admin\ShowController@showSections');
     Route::get('/groups','Admin\ShowController@showGroups');
+
+    Route::get('/groups/show/{id}','Admin\ShowController@showGroup');
+
     Route::get('/course',  'Admin\ShowController@showCourse');
     Route::get('/students','Admin\ShowController@showStudents');
 
@@ -48,6 +51,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/groups/edit/{id}','Admin\ShowController@editGroups');
     Route::get('/section/delete/{id}','Admin\AdminController@deleteSection');
     Route::get('/groups/delete/{id}','Admin\AdminController@deleteGroups');
+
+    Route::get('/groups/delete/user/{user}/group/{group}','Admin\AdminController@deleteUserGroup');
 
     Route::get('/user/delete/{id}','Admin\AdminController@deleteUser');
 
