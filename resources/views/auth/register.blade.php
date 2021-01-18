@@ -66,6 +66,13 @@
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
                 </div>
+                <div class="wrap-input100 validate-input" >
+                    @if(env('GOOGLE_RECAPTCHA_KEY'))
+                        <div class="g-recaptcha"
+                            data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
+                        </div>
+                    @endif
+                </div>
 
 
                 <div class="container-login100-form-btn">
@@ -108,6 +115,7 @@
 </script>
 <!--===============================================================================================-->
 <script src="{{asset('login_assets/js/main.js')}}"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 </body>
 </html>

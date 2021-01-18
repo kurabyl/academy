@@ -103,3 +103,6 @@ Route::get('/logout', function(){
 })->name('logout');
 Route::get('reset','Auth\ResetPasswordController@show');
 Route::post('resetpassword','Auth\ResetPasswordController@reset')->name('resetpassword');
+
+Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback'); 

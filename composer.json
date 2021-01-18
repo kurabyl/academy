@@ -14,8 +14,10 @@
         "guzzlehttp/guzzle": "^6.3",
         "jeroennoten/laravel-adminlte": "^3.2",
         "laravel/framework": "^7.0",
+        "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0"
+        "laravel/ui": "^2.0",
+        "mews/captcha": "^3.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

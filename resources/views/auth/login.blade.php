@@ -69,7 +69,11 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
                 </div>
-
+                <div class="container-login100-form-btn">
+                <a class="btn btn-lg btn-primary btn-block" href="{{ url('auth/google') }}">
+ <strong>Google арқылы кіру</strong>
+ </a>
+                </div>
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn">
                         Кіру

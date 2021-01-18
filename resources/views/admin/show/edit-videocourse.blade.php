@@ -57,7 +57,7 @@
                 <option value=""></option>
                 @foreach($groups as $item)
 
-                    <option value="{{ $item->id  }}" @if($item->videoGroup['group_id'] == $item->id) selected @endif> {{ $item->title }} </option>
+                    <option value="{{ $item->id }}" @if($item->videoGroup['group_id'] ?? 0 == $item->id) selected @endif> {{ $item->title ?? 0}} </option>
                 @endforeach
             </select>
         </div>
