@@ -55,6 +55,42 @@
     }
 
     .close:hover { background: #00d9ff; }
+    @media only screen and (max-width: 600px) {
+        .modalDialog {
+            top: 5%;
+        }
+        .modalDialog h2 {
+            font-size:16px;
+        }
+        .modalDialog > div {
+        width: 400px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: #fff;
+
+
+    }
+    }
+    @media only screen and (max-width: 400px) {
+        .modalDialog > div {
+        width: 300px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: #fff;
+
+
+    }
+    .modalDialog {
+            top: 5%;
+        }
+    .modalDialog h2 {
+        font-size:16px;
+    }
+    }
 	</style>
     <div class="content">
 
@@ -93,11 +129,13 @@
         </div>
     </div>
     <div id="openModal" class="modalDialog" style="
-        @if(is_null($user->details['gender']) && is_null($user->details['phone']) && is_null($user->details['birthday'])) display: block;pointer-events: auto; @endif
+        @if(is_null($user->details['gender']) or is_null($user->details['phone']) or is_null($user->details['birthday'])) display: block;pointer-events: auto; @endif
     ">
 	<div>
-		<a href="#close" title="Закрыть" class="close">X</a>
-		<h2>Өзім туралы мәлімет</h2>
+		
+        <h2>Өзім туралы мәлімет</h2>
+        <div class="row">
+        <div class="col-lg-3">
         <form action="{{ route('change_details') }}" method="post">
                                                                 @csrf
                                                                 <div class="form-group">
@@ -108,7 +146,7 @@
 
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Телефоні нөмері</label>
-                                                                    <input type="text" class="form-control" name="phone" value="{{ $user->details['phone'] ?? '' }}" id="phone"
+                                                                    <input type="text" class="form-control" name="phone" value="{{ $user->details['phone'] }}" id="phone"
                                                                     @if($user->details['phone'] != null)
                                                                         disabled
                                                                     @endif
@@ -125,20 +163,22 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Туылған күні</label>
-                                                                    <input type="date" class="form-control" name="date" value="{{ $user->details['birthday'] ?? '' }}">
+                                                                    <input type="date" class="form-control" name="date" value="{{ $user->details['birthday'] }}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Telegram</label>
-                                                                    <input type="text" class="form-control" name="telegram" value="{{ $user->details['telegram'] ?? '' }}">
+                                                                    <input type="text" class="form-control" name="telegram" value="{{ $user->details['telegram']}}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Instagram</label>
-                                                                    <input type="text" class="form-control" name="instagram" value="{{ $user->details['instagram'] ?? '' }}">
+                                                                    <input type="text" class="form-control" name="instagram" value="{{ $user->details['instagram']}}">
                                                                 </div>
 
                                                                 
                                                                 <button type="submit" class="btn btn-primary">Сақтау</button>
                                                             </form>
+        </div>
+        </div>
 		</div>
 </div>
 @endsection

@@ -53,7 +53,7 @@ class StudentController extends Controller
             return redirect()->back()->with('success','Рахмет! Сіздің сұранысыңыз қабылданды.Сізбен жақын арада хабарласамыз');
         }
         return redirect()->back()->with('warning','Упс! Сіз сұранысты '
-            .$application->created_at.' күні жібердіңіз :) Осы номерге 877777777 хабарласыңыз');
+            .$application->created_at.' күні жібердіңіз ');
 
     }
 
