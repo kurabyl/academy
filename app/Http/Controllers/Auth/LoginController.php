@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use Auth;
 use Exception;
-use App\User;
+use App\Entity\User\User;
 
 class LoginController extends Controller
 {
@@ -49,19 +49,33 @@ class LoginController extends Controller
     public function handleGoogleCallback() 
     {
         try {
+    
             $user = Socialite::driver('google')->user();
+     
             $finduser = User::where('google_id', $user->id)->first();
-            if ($finduser) {
+     
+            if($finduser){
+     
                 Auth::login($finduser);
+    
                 return redirect('/home');
-            } else {
-                $newUser = User::create(['name' => $user->name, 'email' => $user->email, 'google_id' => $user->id]);
+     
+            }else{
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'google_id'=> $user->id,
+                    'password' => encrypt('123456dummyA@'),
+					'role'=> 'student',
+                ]);
+    
                 Auth::login($newUser);
-                return redirect()->back();
+     
+                return redirect('/home');
             }
-        }
-        catch(Exception $e) {
-            return redirect('auth/google');
+    
+        } catch (Exception $e) {
+            dd($e->getMessage());
         }
     }
 }

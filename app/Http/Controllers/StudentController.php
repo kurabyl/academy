@@ -22,8 +22,11 @@ class StudentController extends Controller
 
     public function index()
     {
-
-        return view('home');
+        $user = User::find(Auth::id());
+        
+        return view('home',[
+            'user'=>$user
+        ]);
     }
 
     public function profile()

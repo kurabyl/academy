@@ -116,6 +116,15 @@
 <!--===============================================================================================-->
 <script src="{{asset('login_assets/js/main.js')}}"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+$("form").submit(function(event) {
 
+   var recaptcha = $("#g-recaptcha-response").val();
+   if (recaptcha === "") {
+      event.preventDefault();
+      alert("Міндетті түрде өзіңізді робот емес екенін растау қажет !");
+   }
+});	
+</script>
 </body>
 </html>

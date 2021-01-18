@@ -33,7 +33,7 @@ return [
     'google' => [
         'client_id' => '717003585222-3k7523trhjbr92lb7irierffdii5mcgd.apps.googleusercontent.com',
         'client_secret' => 'ChyVKitPWXA9QnRnam05kxf1',
-        'redirect' => 'http://zhanbolat.academy/callback/google',
+        'redirect' => 'http://zhanbolat.academy/auth/google/callback',
       ],
 
 ];

@@ -70,9 +70,11 @@
 						</span>
                 </div>
                 <div class="container-login100-form-btn">
-                <a class="btn btn-lg btn-primary btn-block" href="{{ url('auth/google') }}">
- <strong>Google арқылы кіру</strong>
- </a>
+               
+					<a id="google-button" class="btn btn-primary btn-social btn-google"  href="{{ url('auth/google') }}">
+						<i class="fa fa-google" style="font-size:16px;"></i> <strong>Google арқылы кіру</strong>
+</a>
+ 
                 </div>
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn">
